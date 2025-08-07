@@ -1,6 +1,11 @@
 name: Terraform
 on:
     workflow_dispatch:
+      inputs: 
+        action: 
+          description: "Select your choice"
+          required: true
+          
 
 jobs:
     deploy: 
@@ -24,5 +29,5 @@ jobs:
         - name: Init
           run: terraform init
 
-        - name: Apply
-          run: terraform destroy -auto-approve
+        - name: Apply or Destroy
+          run: 
