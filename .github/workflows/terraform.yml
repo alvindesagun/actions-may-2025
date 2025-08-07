@@ -33,6 +33,14 @@ jobs:
         - name: Git Clone
           uses: actions/checkout@v4
 
+        - name: Creat tfvars file
+          run: |
+            cat <<EOF > terraform.tfvars
+            ami_id = "${{ inputs.ami_id }}"
+            instance_type = "${{ inputs.instance_type }}"
+            region = "${{ inputs.region }}"
+            EOF
+
         - name: Setup Terraform 
           uses: hashicorp/setup-terraform@v3
           with:
