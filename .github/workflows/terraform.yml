@@ -51,10 +51,10 @@ jobs:
           with:
             aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
             aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-            aws-region: us-east-2
+            aws-region: ${{ inputs.region }}
 
         - name: Init
-          run: terraform init
+          run: terraform init -backend-config=key="${{ inputs.region }}/terraform.tfstate"
 
         - name: Apply or Destroy
           run: terraform ${{ inputs.action }} -auto-approve
