@@ -32,4 +32,4 @@ jobs:
           run: terraform init
 
         - name: Apply or Destroy
-          run: 
+          run: terraform ${{ inputs.action }} -auto-approve
