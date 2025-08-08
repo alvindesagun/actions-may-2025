@@ -21,7 +21,7 @@ on:
 jobs:
     deploy: 
         runs-on: ubuntu-latest
-        environment: "${{ inputs.environment }}"
+        environment: ${{ inputs.environment }}
         steps:
         - name: Git Clone
           uses: actions/checkout@v4
