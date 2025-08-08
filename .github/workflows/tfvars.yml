@@ -1,4 +1,4 @@
-name: Terraform
+name: Tfvars
 on:
     workflow_dispatch:
       inputs: 
